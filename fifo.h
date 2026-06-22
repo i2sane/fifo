@@ -3,9 +3,9 @@
 typedef struct {
 	void **objects;
 	long size;
-} FifoStack;
+} FifoQueue;
 
-FifoStack mkStack();
-void *addToStack(FifoStack *, void *, size_t);
-void *popFromStack(FifoStack *); 
-void destroyStack(FifoStack *);
+FifoQueue mkQueue();
+void *addToQueue(FifoQueue *, void *, size_t);
+void *popFromQueue(FifoQueue *); 
+void destroyQueue(FifoQueue *);
