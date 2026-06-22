@@ -21,6 +21,7 @@ void *addToQueue(FifoQueue *queue, void *object, size_t objectSize) {
 		void **objects = realloc(queue->objects, sizeof (void *) * ++queue->size);
 		if (!objects)
 			return NULL;
+		queue->objects = objects;
 	}
 	void *objectBuffer = malloc(objectSize);
 	if (!objectBuffer)
