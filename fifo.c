@@ -2,11 +2,12 @@
 #include <stdlib.h>
 #include "fifo.h"
 
-FifoQueue mkQueue() {
-	return (FifoQueue){
-		NULL,
-		0
-	};
+FifoQueue *mkQueue() {
+	FifoQueue *queue = malloc(sizeof (FifoQueue));
+	if (!queue)
+		return NULL;
+	memset(queue, 0, sizeof (FifoQueue));
+	return queue;
 }
 
 void *addToQueue(FifoQueue *queue, void *object, size_t objectSize) {
@@ -50,6 +51,5 @@ void destroyQueue(FifoQueue *queue) {
 	for (long i = 0; i < queue->size; i++)
 		free(queue->objects[i]);
 	free(queue->objects);
-	queue->objects = NULL;
-	queue->size = 0;
+	free(queue);
 }

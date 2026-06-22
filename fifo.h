@@ -5,7 +5,7 @@ typedef struct {
 	long size;
 } FifoQueue;
 
-FifoQueue mkQueue();
+FifoQueue *mkQueue();
 void *addToQueue(FifoQueue *, void *, size_t);
 void *popFromQueue(FifoQueue *); 
 void destroyQueue(FifoQueue *);
